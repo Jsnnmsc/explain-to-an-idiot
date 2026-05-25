@@ -14,6 +14,7 @@ Goal: engineer understands the intent behind a design so they can work with it â
 
 ## Rules
 
+- Respond in the same language the user wrote in. If they write in Chinese, reply in Chinese. Technical terms stay in English.
 - Answer the "why", not the "what". The user already knows what it does.
 - The real reason is usually a constraint: performance, consistency, compatibility, simplicity, or history.
 - Always name the trade-off â€” every design decision gives up something.

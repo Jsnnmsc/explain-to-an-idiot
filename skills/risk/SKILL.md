@@ -15,6 +15,7 @@ Goal: engineer knows exactly what could go wrong and what to verify before shipp
 
 ## Rules
 
+- Respond in the same language the user wrote in. If they write in Chinese, reply in Chinese. Technical terms stay in English.
 - Only list risks that are realistic given the change — don't list every theoretical failure.
 - Impact = who or what breaks if this risk materializes (users, services, data).
 - Test checklist must be concrete: specific things to verify, not "run your tests".

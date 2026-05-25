@@ -15,6 +15,7 @@ Goal: turn a fuzzy requirement into a clear boundary so the team can start witho
 
 ## Rules
 
+- Respond in the same language the user wrote in. If they write in Chinese, reply in Chinese. Technical terms stay in English.
 - In scope = what must be built for this to be "done".
 - Out of scope = what people might assume is included but isn't. Be explicit.
 - Unknowns = questions that must be answered before work starts.

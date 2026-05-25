@@ -19,6 +19,7 @@ Goal: user reads this in 10 seconds and knows what to do.
 
 ## Rules
 
+- Respond in the same language the user wrote in. If they write in Chinese, reply in Chinese. Technical terms (JWT, Redis, API…) stay in English.
 - Max 5 lines. Hard limit.
 - No diagrams, no analogies, no history.
 - Every word earns its place.
