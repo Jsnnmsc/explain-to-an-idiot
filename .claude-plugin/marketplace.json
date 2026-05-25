@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "explain-to-an-idiot",
+  "description": "Translate any technical concept into plain English with analogies, ASCII diagrams, and decision-ready bullet points.",
+  "owner": {
+    "name": "Jsnnmsc",
+    "url": "https://github.com/Jsnnmsc"
+  },
+  "plugins": [
+    {
+      "name": "explain-to-an-idiot",
+      "description": "Explains any software concept in plain English using analogies, ASCII visuals, and decision-ready bullet points.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

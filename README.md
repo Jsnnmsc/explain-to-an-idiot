@@ -22,24 +22,17 @@ Three output modes:
 
 ## Installation
 
-**Option 1 — one-liner (recommended)**
+### Claude Code (native plugin)
 
-```bash
-npx skills add Jsnnmsc/explain-to-an-idiot
+Run these three commands inside Claude Code:
+
+```
+/plugin marketplace add Jsnnmsc/explain-to-an-idiot
+/plugin install explain-to-an-idiot@explain-to-an-idiot
+/reload-plugins
 ```
 
-Requires [Node.js](https://nodejs.org). The CLI auto-detects which AI tools you have installed and sets up the skill for each one. Restart your AI tool after installing.
-
-Works with: Claude Code, Cursor, Windsurf, GitHub Copilot, OpenCode, and more.
-
-**Option 2 — manual**
-
-1. Download [`explain-to-an-idiot.skill`](./explain-to-an-idiot.skill)
-2. Drag the `.skill` file into a Claude Code chat window
-
----
-
-Then invoke it with `/explain-to-an-idiot` or just ask naturally — the skill auto-triggers on phrases like:
+Then invoke it with `/explain-to-an-idiot:explain-to-an-idiot`, or just ask naturally — the skill auto-triggers on phrases like:
 
 - "explain this code"
 - "how does this architecture work"

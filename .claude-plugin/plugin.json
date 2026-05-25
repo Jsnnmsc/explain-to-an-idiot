@@ -1,6 +1,9 @@
 {
   "name": "explain-to-an-idiot",
-  "skills": [
-    "./skills/explain-to-an-idiot"
-  ]
+  "description": "Translate any technical concept into plain English with analogies, ASCII diagrams, and decision-ready bullet points.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jsnnmsc",
+    "url": "https://github.com/Jsnnmsc"
+  }
 }
