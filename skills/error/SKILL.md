@@ -24,7 +24,7 @@ Goal: user knows what broke and has a fix to try in under 30 seconds.
 
 ```
 **What broke**
-[One sentence. What failed and why, in plain English.]
+[One sentence. What failed and why, in plain language.]
 
 **Most likely cause**
 [The #1 reason this happens. If there are two equally common causes, list both.]

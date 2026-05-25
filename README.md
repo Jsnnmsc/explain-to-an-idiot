@@ -1,6 +1,6 @@
 # explain-to-an-idiot
 
-A [Claude Code](https://claude.ai/code) plugin that gives software engineers a set of focused, no-fluff tools for understanding technical concepts, decoding errors, scoping work, and surfacing risk — all in plain English.
+A [Claude Code](https://claude.ai/code) plugin that gives software engineers a set of focused, no-fluff tools for understanding technical concepts, decoding errors, scoping work, and surfacing risk — in your language.
 
 ## Skills
 

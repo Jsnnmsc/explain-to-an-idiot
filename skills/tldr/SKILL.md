@@ -1,7 +1,7 @@
 ---
 name: tldr
 description: |
-  Quick plain-English brief — skip the explanation, get the point.
+  Quick plain-language brief — skip the explanation, get the point.
 
   Use when the user says "tldr", "quick version", "what is X", "should I use X", "just tell me", "give me the short version", or is clearly in a hurry.
 
@@ -30,7 +30,7 @@ Goal: user reads this in 10 seconds and knows what to do.
 
 ```
 **$ARGUMENTS**
-[One sentence. What it does in plain English.]
+[One sentence. What it does in plain language.]
 
 - [Key fact #1]
 - [Key fact #2]
@@ -40,7 +40,7 @@ Goal: user reads this in 10 seconds and knows what to do.
 
 ```
 **$ARGUMENTS**
-[One sentence. What it does in plain English.]
+[One sentence. What it does in plain language.]
 
 - Use it when: [one condition, ≤8 words]
 - Skip it when: [one condition, ≤8 words]
