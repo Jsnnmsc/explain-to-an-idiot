@@ -1,28 +1,89 @@
 # explain-to-an-idiot
 
-A [Claude Code](https://claude.ai/code) skill that translates any complex software concept into plain English — so engineers and non-technical stakeholders (PMs, managers, clients) can understand quickly and make decisions faster.
+A [Claude Code](https://claude.ai/code) plugin that gives software engineers a set of focused, no-fluff tools for understanding technical concepts, decoding errors, scoping work, and surfacing risk — all in plain English.
 
-## What it does
+## Skills
 
-Give it any technical topic — a chunk of code, an architecture diagram description, a confusing API doc, or just a vague question like *"what even is JWT"* — and it returns:
+| Skill | Invoke | Use when |
+|---|---|---|
+| **tldr** | `/explain-to-an-idiot:tldr JWT` | You need the point in 10 seconds |
+| **error** | `/explain-to-an-idiot:error` + paste trace | You hit an error and need to fix it fast |
+| **scope** | `/explain-to-an-idiot:scope` + paste requirement | You need to define what's in/out before starting |
+| **risk** | `/explain-to-an-idiot:risk` + paste diff | You want to know what could break before shipping |
+| **why** | `/explain-to-an-idiot:why HTTP is stateless` | You want the reasoning behind a design decision |
 
-- A one-sentence summary (the point, upfront)
-- A real-world analogy that creates an instant mental image
-- An ASCII diagram or comparison table when the concept has structure
-- Scannable bullet takeaways
-- A direct recommendation when a decision is involved
+## Examples
 
-Three output modes:
+**`tldr`** — adapts to whether you need a definition or a decision:
+```
+/explain-to-an-idiot:tldr JWT
 
-| Mode | Use when |
-|---|---|
-| **A — Explain a concept** | You want to understand something yourself |
-| **B — Compare options** | You're choosing between two approaches |
-| **C — Explain to someone else** | You need to brief a manager, PM, or client |
+**JWT**
+A tamper-proof token that proves who you are — server signs it, client carries it.
+
+- Use it when: stateless auth across services
+- Skip it when: you need server-side session revocation
+- Bottom line: use it, keep expiry short (15min)
+```
+
+**`error`** — what broke, why, how to fix:
+```
+**What broke**
+Postgres rejected the connection because the pool was exhausted.
+
+**Most likely cause**
+Too many concurrent queries without releasing connections — common in async code that doesn't await properly.
+
+**Fix**
+1. Check for missing `await` on DB calls in async functions
+2. Lower `pool.max` or add a connection timeout
+3. Add connection pool monitoring to catch this earlier
+```
+
+**`scope`** — clear boundaries before work starts:
+```
+**In scope**
+- User can reset password via email link
+- Link expires after 1 hour
+
+**Out of scope**
+- SMS reset, OAuth re-auth
+- Admin-triggered resets
+
+**Unknowns**
+- Does the link invalidate after first use?
+- Which email service?
+
+**Complexity:** S — straightforward auth flow, no novel logic
+```
+
+**`risk`** — what to verify before shipping:
+```
+**Risks**
+- DB migration changes column type → affects all existing rows
+- New index on high-write table → brief lock during deploy
+
+**Test before shipping**
+- [ ] Run migration on staging with production data volume
+- [ ] Verify reads/writes on affected table after migration
+- [ ] Check deploy window — avoid peak traffic hours
+
+**Risk level:** Medium — migration is safe but needs timing care
+```
+
+**`why`** — the reasoning behind a design:
+```
+**Short answer**
+HTTP is stateless so servers don't have to remember anything between requests.
+
+**The real reason**
+In the early web, servers couldn't reliably store per-client memory across millions of simultaneous users. Statelessness let any server handle any request, making horizontal scaling trivial.
+
+**Trade-off accepted**
+The client has to send identity proof (cookie, token) with every request — more data per request, but no server-side session management.
+```
 
 ## Installation
-
-### Claude Code (native plugin)
 
 Run these three commands inside Claude Code:
 
@@ -31,60 +92,6 @@ Run these three commands inside Claude Code:
 /plugin install explain-to-an-idiot@explain-to-an-idiot
 /reload-plugins
 ```
-
-Then invoke it with `/explain-to-an-idiot:explain-to-an-idiot`, or just ask naturally — the skill auto-triggers on phrases like:
-
-- "explain this code"
-- "how does this architecture work"
-- "how do I explain this to my manager"
-- "what's the difference between X and Y"
-- "what even is [concept]"
-
-## Example
-
-**Input:** "explain JWT to me"
-
-**Output:**
-```
-In one sentence
-A JWT is a tamper-proof digital badge that proves who you are without the server
-needing to look you up every time.
-
-The analogy
-Like a stamped visitor badge at an office. Security checks it at the door, stamps it,
-and now you can walk around freely — no one needs to call reception every time you
-enter a room.
-
-Visual
-  User logs in
-       │
-       ▼
-  Server creates JWT
-  ┌─────────────────────────────┐
-  │ Header (algorithm)          │
-  │ Payload (user ID, role, exp)│  ← your info
-  │ Signature (server's stamp)  │  ← can't be faked
-  └─────────────────────────────┘
-       │
-       ▼
-  Client stores JWT, sends it with every request
-       │
-       ▼
-  Server verifies signature — no DB lookup needed
-
-Key takeaways
-- The signature makes it tamper-proof — change anything, signature breaks
-- Stateless: server doesn't store sessions, scales easily
-- Has an expiry — short-lived tokens (15min) are safer than long ones
-
-So what does this mean for you?
-If you're building auth: use short expiry + refresh tokens. If you're debugging:
-decode the JWT at jwt.io to see exactly what's inside.
-```
-
-## Analogy library
-
-The skill ships with a built-in reference table of 20+ concepts mapped to plain-English analogies — API, cache, event loop, RAG, WebSocket, rate limiting, and more.
 
 ## License
 
