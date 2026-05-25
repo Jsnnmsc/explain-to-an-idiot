@@ -22,13 +22,20 @@ Three output modes:
 
 ## Installation
 
-1. Download [`explain-to-an-idiot.skill`](./explain-to-an-idiot.skill)
-2. Open Claude Code
-3. Drag the `.skill` file into the chat, or run:
+**Option 1 — one-liner (recommended)**
 
+```bash
+npx skills add YOUR_GITHUB_USERNAME/explain-to-an-idiot
 ```
-/install-skill explain-to-an-idiot.skill
-```
+
+Requires [Node.js](https://nodejs.org). Restart Claude Code after installing.
+
+**Option 2 — manual**
+
+1. Download [`explain-to-an-idiot.skill`](./explain-to-an-idiot.skill)
+2. Drag the `.skill` file into a Claude Code chat window
+
+---
 
 Then invoke it with `/explain-to-an-idiot` or just ask naturally — the skill auto-triggers on phrases like:
 
