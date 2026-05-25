@@ -28,7 +28,9 @@ Three output modes:
 npx skills add Jsnnmsc/explain-to-an-idiot
 ```
 
-Requires [Node.js](https://nodejs.org). Restart Claude Code after installing.
+Requires [Node.js](https://nodejs.org). The CLI auto-detects which AI tools you have installed and sets up the skill for each one. Restart your AI tool after installing.
+
+Works with: Claude Code, Cursor, Windsurf, GitHub Copilot, OpenCode, and more.
 
 **Option 2 — manual**
 
