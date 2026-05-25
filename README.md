@@ -25,7 +25,7 @@ Three output modes:
 **Option 1 — one-liner (recommended)**
 
 ```bash
-npx skills add YOUR_GITHUB_USERNAME/explain-to-an-idiot
+npx skills add Jsnnmsc/explain-to-an-idiot
 ```
 
 Requires [Node.js](https://nodejs.org). Restart Claude Code after installing.
